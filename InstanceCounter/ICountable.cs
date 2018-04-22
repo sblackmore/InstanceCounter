@@ -1,6 +1,6 @@
-﻿using System;
-namespace InstanceCounter
+﻿namespace InstanceCounter
 {
+    using System;
     public interface ICountable
     {
 

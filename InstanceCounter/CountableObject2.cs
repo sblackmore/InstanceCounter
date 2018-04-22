@@ -1,10 +1,10 @@
 ﻿namespace InstanceCounter
 {
-    public class CountableObject1 : ICountable
+    public class CountableObject2 : ICountable
     {
         static int countInstances = 0;
 
-        internal CountableObject1()
+        internal CountableObject2()
         {
             countInstances++;
         }
