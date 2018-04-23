@@ -1,7 +1,7 @@
 ﻿namespace InstanceCounter
 {
     using System;
-    public interface ICountable
+    public interface ICountable : IDisposable
     {
 
     }

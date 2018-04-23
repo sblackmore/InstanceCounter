@@ -1,17 +1,14 @@
 ﻿namespace InstanceCounter
 {
-    public class CountableObject1 : ICountable
+    public class CountableObject1
     {
-        static int countInstances = 0;
+        CountableObjectRegistry registry = CountableObjectRegistry.getInstance();
 
-        internal CountableObject1()
+        // internal constructor to make it package private
+        public CountableObject1() 
         {
-            countInstances++;
+            
         }
 
-        public static int getCountInstances()
-        {
-            return countInstances;
-        }
     }
 }

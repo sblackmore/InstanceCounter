@@ -4,43 +4,22 @@
 
     public class CountableObjectFactory
     {
-        static CountableObjectFactory instance;
-        CountableObjectRegistry registry = new CountableObjectRegistry();
-
-        CountableObjectFactory() { }
-
-        public static CountableObjectFactory getInstance() 
+        CountableObjectRegistry registry;
+        public CountableObjectFactory(CountableObjectRegistry registry) 
         {
-            if (instance == null)
-            {
-                instance = new CountableObjectFactory();
-            }
-            return instance;
+            this.registry = registry;
         }
 
-        public ICountable createCountableObjectInstance(string countableObjectType)
+        public T createCountableObjectInstance<T>(createInstance<T> foo)
         {
-            CountableObjectTypes types;
-            if (Enum.TryParse(countableObjectType, out types))
-            {
-                switch (types) 
-                { 
-                    case CountableObjectTypes.CountableObject1:
-                        registry.addCountableObjectInstance(countableObjectType);
-                        return new CountableObject1();
-                    case CountableObjectTypes.CountableObject2:
-                        registry.addCountableObjectInstance(countableObjectType);
-                        return new CountableObject2();
-                    case CountableObjectTypes.CountableObject3:
-                        registry.addCountableObjectInstance(countableObjectType);
-                        return new CountableObject3();
-                    default:
-                        throw new Exception("Must provide a valid countable type");
-                }
-            }
+            var temp = foo();
+            var tempType = temp.GetType();
 
-            throw new Exception("Must provide a valid countable type");
+            registry.addCountableObjectInstance(temp);
+            return temp;
         }
+
+        public delegate T createInstance<T>();
     }
 }
 

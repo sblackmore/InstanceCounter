@@ -1,17 +1,6 @@
 ﻿namespace InstanceCounter
 {
-    public class CountableObject3 : ICountable
+    public class CountableObject3 
     {
-        static int countInstances = 0;
-
-        internal CountableObject3()
-        {
-            countInstances++;
-        }
-
-        public static int getCountInstances()
-        {
-            return countInstances;
-        }
     }
 }

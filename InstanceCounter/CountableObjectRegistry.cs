@@ -1,42 +1,60 @@
 ﻿namespace InstanceCounter
 {
     using System.Collections.Generic;
+    using System;
                 
     public class CountableObjectRegistry
     {
-        static Dictionary<string, int> countableObjectTable;
-        internal CountableObjectRegistry()
+        static CountableObjectRegistry instance;
+        static Dictionary<Type, List<WeakReference>> countableObjectTable;
+
+        CountableObjectRegistry()
         {
-            countableObjectTable = new Dictionary<string, int>();
+            countableObjectTable = new Dictionary<Type, List<WeakReference>>();
         }
 
-        internal void addCountableObjectInstance(string countableObject) 
+        public static CountableObjectRegistry getInstance()
         {
-            if (countableObjectTable.ContainsKey(countableObject))
+            if (instance == null)
             {
-                countableObjectTable[countableObject]++;
+                instance = new CountableObjectRegistry();
             }
-            else
-            {
-                countableObjectTable.Add(countableObject, 1);
-            }
+            return instance;
         }
 
-        internal void removeCountableObjectInstance(string countableObject)
+        internal void addCountableObjectInstance(Object countableObject)
         {
-            if (countableObjectTable.ContainsKey(countableObject))
+            WeakReference reference = new WeakReference(countableObject);
+            if (!countableObjectTable.ContainsKey(countableObject.GetType()))
             {
-                countableObjectTable[countableObject]--;
+                countableObjectTable.Add(countableObject.GetType(), new List<WeakReference>());
             }
+
+            countableObjectTable[countableObject.GetType()].Add(reference);
         }
 
-        public static int getCountableObjectInstances(string countableObject)
+        public void printStatistics()
         {
-            if (countableObjectTable.ContainsKey(countableObject))
+            var objectTypes = countableObjectTable.Keys;
+            foreach(var objectType in objectTypes)
             {
-                return countableObjectTable[countableObject];
+                int countTotal = countableObjectTable[objectType].Count;
+                int liveReferenceCount = 0;
+                foreach(var reference in countableObjectTable[objectType])
+                {
+                    if(reference.IsAlive)
+                    {
+                        liveReferenceCount++;
+                    }
+
+                    //if(!reference.IsAlive) {
+                    //    countableObjectTable[objectType].Remove(reference);
+                    //}
+                }
+                Console.Out.WriteLine("All instances created of" + objectType + ": " + countTotal);
+                Console.Out.WriteLine("All alive instances  of" + objectType + ": " + liveReferenceCount);
+                Console.Out.WriteLine();
             }
-            return 0;
         }
     }
 }
