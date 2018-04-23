@@ -5,10 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstanceCounter", "Instance
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InstanceCounter", "InstanceCounter", "{BAD433AA-EF88-459F-B675-8C8DBB154A8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstanceCounterTest", "InstanceCounterTest\InstanceCounterTest\InstanceCounterTest.csproj", "{6EAC1AEF-0BDF-4847-9D38-13DD0A3F66DA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InstanceCounterTest", "InstanceCounterTest", "{6F1DD248-EB67-498B-AAA4-A7584E509AC6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "Program\Program\Program.csproj", "{4AAA1A93-9FB7-4283-8F31-70570E077151}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Program", "Program", "{BCB51CEC-51FD-4E16-9BD5-9DE3C6703F71}"
