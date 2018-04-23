@@ -16,7 +16,6 @@
             var five = factory.createCountableObjectInstance(() => new CountableObject2());
             var six = factory.createCountableObjectInstance(() => new CountableObject3());
 
-
             registry.printStatistics();
             one = null;
             GC.Collect(GC.GetGeneration(one));
@@ -24,7 +23,5 @@
             System.Threading.Thread.Sleep(5000);
             registry.printStatistics();
         }
-
-
     }
 }
