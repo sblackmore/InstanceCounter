@@ -51,7 +51,7 @@
         }
 
         // Updates the countableObjectRegistry with new types/references, or adds new references for types already in the table.
-        internal void addCountableObjectInstance(Object countableObject)
+        void addCountableObjectInstance(Object countableObject)
         {
             WeakReference reference = new WeakReference(countableObject);
             if (!countableObjectRegistry.ContainsKey(countableObject.GetType()))
