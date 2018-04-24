@@ -1,34 +1,34 @@
 # InstanceCounter
-This proof of concept solution provides a mechanism to count the number of times a set of classes have been instantiated as well as the number of those classes that are still reachable/alive. The type of class should not matter, so it should be extensible to any class type as long as the class is instantiated using the CountableObjectFactory. The factory returns the object to the caller after updating an internally maintained "registry" of types and weak references. If an object is set to null and garbage collected (meaning the WeakReference property IsAlive = false), then the count of alive references for that type will be lower than the total instances of the type.
+This proof of concept solution provides a mechanism to count the number of times a set of classes have been instantiated as well as the number of those classes that are still reachable/alive. The type of class should not matter, so it should be extensible to any class type as long as the class is instantiated using the CountableObjectFactory. The factory returns the object to the caller after updating an internally maintained "registry" of types and weak references. If no more references remain to an object and it is  garbage collected (meaning the WeakReference property IsAlive = false), then the count of alive references for that type will be lower than the total instances of the type.
 
 ### Sample Program Output:
 ```** Instantiated and Alive Stats for InstanceCounter.CountableObject1 **
-All instances created ofInstanceCounter.CountableObject1: 2
-All alive instances  ofInstanceCounter.CountableObject1: 2
+All instances created of InstanceCounter.CountableObject1: 2
+All alive instances of InstanceCounter.CountableObject1: 2
 
 ** Instantiated and Alive Stats for InstanceCounter.CountableObject2 **
-All instances created ofInstanceCounter.CountableObject2: 3
-All alive instances  ofInstanceCounter.CountableObject2: 3
+All instances created of InstanceCounter.CountableObject2: 3
+All alive instances of InstanceCounter.CountableObject2: 3
 
 ** Instantiated and Alive Stats for InstanceCounter.CountableObject3 **
-All instances created ofInstanceCounter.CountableObject3: 1
-All alive instances  ofInstanceCounter.CountableObject3: 1
+All instances created of InstanceCounter.CountableObject3: 1
+All alive instances of InstanceCounter.CountableObject3: 1
 
 Setting one of the CountableObject1 instances to null...
 Requesting Garbage Collection...
 Sleeping for 5 seconds...
 
 ** Instantiated and Alive Stats for InstanceCounter.CountableObject1 **
-All instances created ofInstanceCounter.CountableObject1: 2
-All alive instances  ofInstanceCounter.CountableObject1: 1
+All instances created of InstanceCounter.CountableObject1: 2
+All alive instances of InstanceCounter.CountableObject1: 1
 
 ** Instantiated and Alive Stats for InstanceCounter.CountableObject2 **
-All instances created ofInstanceCounter.CountableObject2: 3
-All alive instances  ofInstanceCounter.CountableObject2: 3
+All instances created of InstanceCounter.CountableObject2: 3
+All alive instances of InstanceCounter.CountableObject2: 3
 
 ** Instantiated and Alive Stats for InstanceCounter.CountableObject3 **
-All instances created ofInstanceCounter.CountableObject3: 1
-All alive instances  ofInstanceCounter.CountableObject3: 1
+All instances created of InstanceCounter.CountableObject3: 1
+All alive instances of InstanceCounter.CountableObject3: 1
 
 Press any key to continue...
 ```
