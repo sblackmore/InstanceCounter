@@ -44,9 +44,8 @@
                     }
                 }
                 Console.Out.WriteLine("\r\n** Instantiated and Alive Stats for {0} **", objectType);
-                Console.Out.WriteLine("All instances created of" + objectType + ": " + countTotal);
-                Console.Out.WriteLine("All alive instances  of" + objectType + ": " + liveReferenceCount);
-                Console.Out.WriteLine();
+                Console.Out.WriteLine("All instances created of " + objectType + ": " + countTotal);
+                Console.Out.WriteLine("All alive instances of " + objectType + ": " + liveReferenceCount);
             }
         }
 
