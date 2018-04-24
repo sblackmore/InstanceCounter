@@ -31,7 +31,6 @@
     <Compile Include="CountableObjectFactory.cs" />
     <Compile Include="CountableObject2.cs" />
     <Compile Include="CountableObject3.cs" />
-    <Compile Include="CountableObjectRegistry.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
