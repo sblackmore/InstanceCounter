@@ -2,7 +2,8 @@
 This proof of concept solution provides a mechanism to count the number of times a set of classes have been instantiated as well as the number of those classes that are still reachable/alive. The type of class should not matter, so it should be extensible to any class type as long as the class is instantiated using the CountableObjectFactory. The factory returns the object to the caller after updating an internally maintained "registry" of types and weak references. If no more references remain to an object and it is  garbage collected (meaning the WeakReference property IsAlive = false), then the count of alive references for that type will be lower than the total instances of the type.
 
 ### Sample Program Output:
-```** Instantiated and Alive Stats for InstanceCounter.CountableObject1 **
+```
+** Instantiated and Alive Stats for InstanceCounter.CountableObject1 **
 All instances created of InstanceCounter.CountableObject1: 2
 All alive instances of InstanceCounter.CountableObject1: 2
 
