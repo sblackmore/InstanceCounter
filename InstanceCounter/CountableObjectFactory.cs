@@ -7,7 +7,7 @@
     public class CountableObjectFactory
     {
         // A table to keep track of object instances.
-        static Dictionary<Type, List<WeakReference>> countableObjectRegistry;
+        Dictionary<Type, List<WeakReference>> countableObjectRegistry;
 
         public CountableObjectFactory() 
         {
