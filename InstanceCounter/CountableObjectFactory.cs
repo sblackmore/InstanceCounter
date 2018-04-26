@@ -28,7 +28,7 @@
         // Prints the total number of objects that have been instantiated and added to the table.
         // If an object has been set to null and garbage collected, then it is no longer alive. 
         // TODO: Would need to add a task to run periodically to clean out dead references so the list
-        // does not grow exponentially.
+        // does not grow indefinitely.
         public void printStatistics()
         {
             var objectTypes = countableObjectRegistry.Keys;
